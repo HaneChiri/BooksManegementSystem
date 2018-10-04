@@ -1,4 +1,4 @@
-# BooksManegementSystem
+# LibraryManegementSystem
 # 图书管理系统
 
 一个学习使用面向对象方法编程的项目
