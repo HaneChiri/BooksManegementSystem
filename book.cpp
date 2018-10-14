@@ -115,13 +115,13 @@ Book* BookList::findname(char a[])
 	if(strcmp(book[i].getname(),a)==0) 
 	{ 
 	   if(r==0)
-	   cout<<setw(3)<<"±àºÅ"<<setw(10)<<"ÊéÃû"<<setw(10)<<"×÷Õß"<<setw(15)<<"³ö°æÉç"<<setw(10)<<"Í¼Êé¼Û¸ñ"<<setw(10)<<"ÊÇ·ñ±»½è"<<endl;
+	   cout<<setw(3)<<"ç¼–å·"<<setw(10)<<"ä¹¦å"<<setw(10)<<"ä½œè€…"<<setw(15)<<"å‡ºç‰ˆç¤¾"<<setw(10)<<"å›¾ä¹¦ä»·æ ¼"<<setw(10)<<"æ˜¯å¦è¢«å€Ÿ"<<endl;
 	   e=&book[i];
 	   e->display();
 	   r++; 
 	} 
 	if(r==0)
-	cout<<"ÕÒ²»µ½¸ÃÊé!"<<endl;
+	cout<<"æ‰¾ä¸åˆ°è¯¥ä¹¦!"<<endl;
 	return NULL; 
 }
 
@@ -133,13 +133,13 @@ Book* BookList::findauthor(char a[])
   	if(strcmp(book[i].getauthor(),a)==0) 
   	{ 
    		if(r==0)
-	   	cout<<setw(3)<<"±àºÅ"<<setw(10)<<"ÊéÃû"<<setw(10)<<"×÷Õß"<<setw(10)<<"·ÖÀàºÅ"<<setw(15)<<"³ö°æÉç"<<setw(10)<<"³ö°æÊ±¼ä"<<setw(10)<<"Í¼Êé¼Û¸ñ"<<setw(10)<<"´æÁ¿"<<endl;
+	   	cout<<setw(3)<<"ç¼–å·"<<setw(10)<<"ä¹¦å"<<setw(10)<<"ä½œè€…"<<setw(10)<<"å‡ºç‰ˆæ—¶é—´"<<setw(10)<<"å›¾ä¹¦ä»·æ ¼"<<setw(10)<<"æ˜¯å¦è¢«å€Ÿ"<<endl;
 	    e=&book[i];
 	   	e->display();
 	   	r++; 
   	} 
   	if(r==0)
-  	cout<<"ÕÒ²»µ½¸ÃÊé!"<<endl;
+  	cout<<"æ‰¾ä¸åˆ°è¯¥ä¹¦!"<<endl;
    	return NULL; 
 }
 
