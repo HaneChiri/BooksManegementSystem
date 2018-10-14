@@ -133,8 +133,8 @@ Book* BookList::findauthor(char a[])
   	if(strcmp(book[i].getauthor(),a)==0) 
   	{ 
    		if(r==0)
-	   	cout<<setw(3)<<"编号"<<setw(10)<<"书名"<<setw(10)<<"作者"<<setw(10)<<"出版时间"<<setw(10)<<"图书价格"<<setw(10)<<"是否被借"<<endl;
-	    e=&book[i];
+	   	cout<<setw(3)<<"编号"<<setw(10)<<"书名"<<setw(10)<<"作者"<<setw(15)<<"出版社"<<setw(10)<<"图书价格"<<setw(10)<<"是否被借"<<endl;
+	    	e=&book[i];
 	   	e->display();
 	   	r++; 
   	} 
@@ -146,7 +146,7 @@ Book* BookList::findauthor(char a[])
 int BookList::addbook(int _id,int _number,char *_name,char *_author,char *_press,float _price,bool _isBorrowed)
 {
 	Book *p=findid(_id); 
-    if (NULL==p) 
+    	if (NULL==p) 
    { 
 	   top++; 
 	   book[top].addbook(_id,_number,_name,_author,_press,_price,_isBorrowed); 
