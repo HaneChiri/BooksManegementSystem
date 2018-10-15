@@ -14,5 +14,9 @@
 
 目前正在做的（括号内是Deadline）：
 
--完成AccountList类和BookList类
+-完成AccountList类和BookList类（10-20）
+
+结构图：
+
+![类结构图](https://github.com/HaneChiri/LibraryManegementSystem/edit/develop/picture/结构.png)
 
