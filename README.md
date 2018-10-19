@@ -17,8 +17,10 @@
 
 目前正在做的（小括号内是Deadline，黑方括号内是主要涉及到的类或函数）：
 
+- 【BookList】增加必要的注释以及分为多文件结构（10-20）
+- 【AccountList】修复用户ID的自增功能以及增加注释（10-20）
 - 【AccountList】将BookList类的函数链接到AccountList类中需要的部分（10-21）
-- 【main】编写main函数以实现菜单（10-21）
+- 【main】编写main函数以实现基本的功能（10-21）
 - 【AccountList】管理员权限设置以及记录管理员操作日志（10-28）
 - 【BookList】记录借阅及归还日志（10-28）
 
