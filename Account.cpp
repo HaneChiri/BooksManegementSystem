@@ -3,22 +3,23 @@
 #include <cstring>
 #include <iostream>
 
-int Account::accountSum = 0;//初始化
+/*
+函数名：Account
+函数功能：构造函数
+参数：
+返回值：
+*/
 Account::Account(const char * p_name,const bool p_sex,const char * p_phoneNumber,const char * p_userName,const char * p_password)
 {
 	strcpy(name, p_name);
 	sex = p_sex;
 	strcpy(phoneNumber, p_phoneNumber);
 	accountType = 0;//默认为普通用户
-	strcpy(userName, p_userName);
+	strcpy(UID, p_userName);
 	strcpy(password, p_password);
-	//分配UID
-	accountSum++;
-	UID = accountSum;
 }
 Account::~Account()
 {
-	accountSum--;
 }
 Account::Account(const Account & a)
 {
@@ -26,12 +27,15 @@ Account::Account(const Account & a)
 	sex = a.sex;
 	strcpy(phoneNumber, a.phoneNumber);
 	accountType = 0;//权限不会复制
-	strcpy(userName, a.userName);
+	strcpy(UID, a.UID);
 	strcpy(password, a.password);
-	//重新分配UID
-	accountSum++;
-	UID = accountSum;
 }
+/*
+函数名：displayBorrowList
+函数功能：显示正在借阅的书籍列表
+参数：无
+返回值：无
+*/
 void Account::displayBorrowList()
 {
 	for (int i = 0; i < MAX_BORROW_NUM; i++)
@@ -40,7 +44,12 @@ void Account::displayBorrowList()
 	}
 	
 }
-
+/*
+函数名：changePwd
+函数功能：修改密码
+参数：无
+返回值：是否修改成功
+*/
 int Account::changePwd()
 {
 	char pwd[PWD_LEN];
