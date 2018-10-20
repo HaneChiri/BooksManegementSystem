@@ -9,12 +9,12 @@ class Account
 {
 protected:
 	friend class AccountList;
-	char name[NAME_LEN];
-	bool sex;//false为女，true为男
-	char phoneNumber[20];
+	char name[NAME_LEN];//姓名
+	bool sex;//性别 false为女，true为男
+	char phoneNumber[20];//电话号码
 	bool accountType;//0为普通用户，1为管理员
-	char UID[CARD_ID_LEN];
-	char password[PWD_LEN];
+	char UID[CARD_ID_LEN];//账号
+	char password[PWD_LEN];//密码
 	//Book borrowingBook[MAX_BORROW_NUM];//借阅列表
 	//int borrowingN;//正在借阅书籍的数量
 	Account* next;

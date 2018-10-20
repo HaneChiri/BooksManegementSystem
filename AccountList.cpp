@@ -9,13 +9,15 @@ using namespace std;
 ²ÎÊý£ºÎÞ
 ·µ»ØÖµ£ºÎÞ
 */
-AccountList::AccountList():registerNum(0),dataFileName("data.txt"), currentAccount(NULL)
+AccountList::AccountList():registerNum(0),dataFileName("data.txt")
 {
 	head = new Account;
+	strcpy(head->UID, "NULL");
 	head->next = NULL;
+	currentAccount = head;
 }
 AccountList::AccountList(const Account data[],const int n):registerNum(n)//Î²²å·¨¹¹Ôìº¯Êý
-{
+{//´Ëº¯Êý²»¸üÐÂÁË£¬Çë²»ÒªÊ¹ÓÃ
 	head = new Account("root", true, "", "root", "");//Í·½Úµã
 	head->next = NULL;
 	Account*p1 ,*p2;//p2Ö¸ÏòÎ²½Úµã£¬p1Ö¸Ïòp2Ç°Ò»¸ö½Úµã
@@ -28,11 +30,13 @@ AccountList::AccountList(const Account data[],const int n):registerNum(n)//Î²²å·
 	}
 	p2->next = NULL;
 }
-AccountList::AccountList(const char * fileName):registerNum(0),dataFileName(fileName),currentAccount(NULL)
+AccountList::AccountList(const char * fileName):registerNum(0),dataFileName(fileName)
 {
-	head = new Account("root", true, "", "root", "");
+	head = new Account();
+	strcpy(head->UID, "NULL");
 	head->next = NULL;
 	loadData();
+	currentAccount = head;
 }
 /*
 º¯ÊýÃû£ºdisplayList
@@ -44,6 +48,7 @@ void AccountList::displayList()const
 {
 	Account* p = head->next;
 	printf("Ä¿Ç°×¢²áÈËÊý£º%d\n", registerNum);
+	printf("µ±Ç°µÇÂ½ÕËºÅ£º%s\n", currentAccount->UID);
 	printf("UID\tÕËºÅÈ¨ÏÞ\tÐÕÃû\t\tÐÔ±ð\tÁªÏµ·½Ê½\n");
 	while (p != NULL)
 	{
@@ -230,11 +235,20 @@ int AccountList::signUp()
 	printf("ÊäÈëÐÕÃû£º\n");
 	scanf("%s", newAccount->name);
 	printf("ÊäÈëÐÔ±ð£º\n");
-	scanf(" %s", &newAccount->sex);
+	scanf(" %d", &newAccount->sex);
 	printf("ÊäÈëÁªÏµ·½Ê½£º\n");
 	scanf(" %s", newAccount->phoneNumber);
+	do
+	{
+		printf("ÊäÈëÓÃ»§Ãû£¬Õâ½«ÊÇÄãµÄµÇÂ½ÓÃµÄÕËºÅ£¬³¤¶ÈÔÚ%d¸ö×Ö·ûÒÔÄÚ£º\n", NAME_LEN);
+		scanf(" %s", newAccount->UID);
+
+	} while (findNode(T_UID, newAccount->UID)!=NULL && printf("ÓÃ»§ÃûÖØ¸´£¡ÇëÔÙ´ÎÊäÈë"));
+	//Ìõ¼þ£º£¨ÓÃ»§ÃûÖØ¸´ && ´íÎóÐÅÏ¢£©µ±ÓÃ»§ÃûÖØ¸´µÄÊ±ºò£¬Ç°ÃæÎªÕæ£¬È»ºó´òÓ¡ºóÃæ±í´ïÊ½
+
+	
 	strcpy(newAccount->password, "666666");
-	newAccount->accountType = 0;
+	newAccount->accountType = 0;//ÉèÖÃÈ¨ÏÞÎªÆÕÍ¨ÓÃ»§
 	/*/==============================//
 	FILE* fp = fopen(dataFileName, "r");
 	if (fp == NULL)
@@ -254,8 +268,6 @@ int AccountList::signUp()
 	}
 	nextUID[CARD_ID_LEN - 1] = '\0';
 	//==============================/*/
-	
-	strcpy(newAccount->UID, "0001");
 
 	addNode(newAccount);
 	delete newAccount;
@@ -293,13 +305,14 @@ int AccountList::signIn()
 
 
 /*
-º¯ÊýÃû£º
-º¯Êý¹¦ÄÜ£º
-²ÎÊý£º
-·µ»ØÖµ£º
+º¯ÊýÃû£º~AccountList
+º¯Êý¹¦ÄÜ£ºÔÚ³ÌÐòÍË³öµÄÊ±ºò±£´æÊý¾Ýµ½ÎÄ¼þ
+²ÎÊý£ºÎÞ
+·µ»ØÖµ£ºÎÞ
 */
 AccountList::~AccountList()
 {
+	saveData();
 	Account*p = head->next;
 	while (p != NULL)
 	{

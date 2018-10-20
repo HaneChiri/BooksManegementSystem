@@ -33,6 +33,7 @@ public:
 	int signUp();//×¢²á
 	int signIn();//µÇÂ½
 	
+
 	
 };
 
