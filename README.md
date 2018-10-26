@@ -11,20 +11,25 @@
 - 记录借阅及归还日志
 - 记录管理员操作日志
 
-已经完成的：
+已经完成的(不计修复bug)：
 
-- 完成AccountList类和BookList类的基本功能（10-20）
+- [x] 完成AccountList类和BookList类的基本功能（10-20）
+- [x] 【AccountList】修复用户ID的自增功能以及增加注释（10-20）
+- [x] 【BookList】增加必要的注释以及分为多文件结构（10-26）
+- [x] 【AccountList】将BookList类的函数链接到AccountList类中需要的部分（10-21）
 
 目前正在做的（小括号内是Deadline，黑方括号内是主要涉及到的类或函数）：
 
-- 【BookList】增加必要的注释以及分为多文件结构（10-20）
-- 【AccountList】修复用户ID的自增功能以及增加注释（10-20）
-- 【AccountList】将BookList类的函数链接到AccountList类中需要的部分（10-21）
-- 【main】编写main函数以实现基本的功能（10-21）
-- 【AccountList】管理员权限设置以及记录管理员操作日志（10-28）
-- 【BookList】记录借阅及归还日志（10-28）
+- [ ]  【Book】方法：查看这本书是否被借阅以及借阅信息（何时借，何时还）(10-28)
+    - //只有设置是否可借阅而不能查看？这样有点问题
+- [ ] 【Book】属性：借阅信息(10-28)
+- [ ] 【Book】【BookList】函数功能及参数，返回值注释（11-4）
+- [ ] 【Book】【BookList】测试全部函数，并记录出现的问题，加到studyLog尾部。学习到的知识点直接使用三级标题，BUG加上前缀，若未解决加上（未解决）（11-4）
+- [ ] 【Book】【BookList】优化代码结构，例如将不应该改动属性的函数加上const（11-4）
+- [ ] 【Account】测试Account::borrow，Account::returnBook，并记录出现的问题，加到studyLog尾部（11-4）
+- [ ] 优化代码结构，编写文档（11-4）
+- [ ] 【main】编写main函数以实现基本的功能（11-4）
+- [ ] 【AccountList】管理员权限设置以及记录管理员操作日志（11-11）
+- [ ] 【BookList】记录借阅及归还日志（11-11）
 
-结构图：
-
-![类结构图](https://github.com/HaneChiri/LibraryManegementSystem/edit/develop/picture/结构.png)
 
