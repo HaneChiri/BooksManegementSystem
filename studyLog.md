@@ -1,4 +1,4 @@
-# UpdateLog
+# studyLog
 
 ## 2018-10-11
 
@@ -245,7 +245,9 @@ int AccountList::saveData(const char* fileName)
 ```
 读取时，name属性直接将后面全部读取，没有分隔
 
-解决方案：fscanf的格式字符串后面不带\n，此时不会报错，不过仍然出现name中直接读取后面全部数据的情况。改为以空格为间隔即可。
+解决方案：
+
+    fscanf的格式字符串后面不带\n，此时不会报错，不过仍然出现name中直接读取后面全部数据的情况。改为以空格为间隔即可。
 
 仍然不知道为什么不能用分隔符，逗号和冒号都试过。
 
@@ -254,5 +256,23 @@ int AccountList::saveData(const char* fileName)
 ### BUG：UID不唯一
 
 解决方法：
-由于UID与username属性重复，将username属性改为UID，删除UID。同时，删除accountNum这个静态属性，用其他方式来确定唯一UID
 
+    由于UID与username属性重复，将username属性改为UID，删除UID。同时，删除accountNum这个静态属性，用其他方式来确定唯一UID
+
+这个改动作为诱因，使我几乎重构了整个类。
+
+## 2018-10-26
+
+### Book类需要修改的内容
+
+- [ ]  方法：查看这本书是否被借阅以及借阅信息（何时借何时还）
+    - //只有设置是否可借阅而不能查看？这样有点问题
+- [ ] 属性：借阅信息
+- [ ] 函数功能及参数，返回值注释
+- [ ] 测试全部函数，并记录出现的问题，加到studyLog尾部。学习到的知识点直接使用三级标题，BUG加上前缀，若未解决加上（未解决）
+- [ ] 优化代码结构，例如将不应该改动属性的函数加上const
+
+### Accout类需要修改的内容
+
+- [ ] 测试Account::borrow，Account::returnBook，并记录出现的问题，加到studyLog尾部
+- [ ]  优化代码结构，编写文档
