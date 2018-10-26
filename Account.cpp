@@ -1,7 +1,10 @@
+
 #include "pch.h"
 #include "Account.h"
 #include <cstring>
 #include <iostream>
+
+#include "bookList.h"
 
 /*
 函数名：Account
@@ -40,9 +43,73 @@ void Account::displayBorrowList()
 {
 	for (int i = 0; i < MAX_BORROW_NUM; i++)
 	{
-		//borrowingBook[i].display(SingleLine);//调用书籍的单条显示
+		//borrowingBook.display(SingleLine);//调用书籍的单条显示
 	}
 	
+}
+/*
+函数名：borrow
+函数功能：借书
+参数：书库指针，书指针
+返回值：是否正常执行
+*/
+int Account::borrow(BookList *bookDataBase,int bookID)
+{
+	if (borrowingN >= MAX_BORROW_NUM || borrowingN<0)
+	{
+		return -1;
+	}
+
+	Book* b;
+	if ((b=bookDataBase->findid(bookID))==NULL)
+	{
+		return -1;
+	}//需要增加判断是否被借阅的分支，等待book类更新
+	else
+	{
+		b->borrow();//借书
+		borrowingBooks[borrowingN]= *b;//录入到借阅列表
+		borrowingN++;
+		printf("借阅成功！\n");
+	}
+	return 0;
+}
+/*
+函数名：returnBook
+函数功能：还书
+参数：书库指针，书指针
+返回值：是否正常执行
+*/
+int Account::returnBook(BookList *bookDataBase, int bookID)
+{
+	if (borrowingN >= MAX_BORROW_NUM || borrowingN < 0)
+	{
+		return -1;
+	}
+	Book* b;
+	if ((b = bookDataBase->findid(bookID)) == NULL)
+	{
+		return -1;
+	}//需要增加判断是否被借阅的分支，等待book类更新
+	else
+	{
+		b->back();
+		for (int i = 0; i < borrowingN; i++)
+		{
+			if (borrowingBooks[i].getid() == b->getid())
+			{
+				for (int j = i; j < borrowingN - 1; j++)//删除后，后面的书前移
+				{
+					borrowingBooks[j] = borrowingBooks[j + 1];
+				}
+			}
+		}
+		borrowingN--;
+		printf("还书成功！\n");
+	}
+	
+	
+	return 0;
 }
 /*
 函数名：changePwd

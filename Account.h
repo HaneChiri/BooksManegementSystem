@@ -1,5 +1,9 @@
+
 #pragma once
 //#include "AccountList.h"//似乎不需要前向引用？
+#include "bookList.h"
+
+
 const int MAX_BORROW_NUM = 5;
 const int PWD_LEN = 20;
 const int NAME_LEN = 20;
@@ -15,8 +19,12 @@ protected:
 	bool accountType;//0为普通用户，1为管理员
 	char UID[CARD_ID_LEN];//账号
 	char password[PWD_LEN];//密码
-	//Book borrowingBook[MAX_BORROW_NUM];//借阅列表
-	//int borrowingN;//正在借阅书籍的数量
+	//======================//
+
+	Book borrowingBooks[MAX_BORROW_NUM];//借阅列表
+	int borrowingN;//正在借阅书籍的数量
+
+	//======================/*/
 	Account* next;
 public:
 	Account(const char * p_name, const bool p_sex, const char * p_phoneNumber,
@@ -24,9 +32,11 @@ public:
 	Account(){} 
 	~Account();
 	Account(const Account &a);
+	//======================//
 	void displayBorrowList();//借阅列表显示
-	//int borrow(Book book);
-	//int returnBook();
+	int borrow( BookList *book, int bookID);
+	int returnBook(BookList *bookDataBase, int bookID);
+	//======================/*/
 	int changePwd();//修改密码
 	char* getName() { return name; }
 
