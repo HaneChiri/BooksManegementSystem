@@ -34,8 +34,8 @@ public:
 	Account(const Account &a);
 	//======================//
 	void displayBorrowList();//借阅列表显示
-	int borrow( BookList *book, int bookID);
-	int returnBook(BookList *bookDataBase, int bookID);
+	int borrow( BookList *book, int bookID); //备注：暂时不可用
+	int returnBook(BookList *bookDataBase, int bookID);//备注：暂时不可用
 	//======================/*/
 	int changePwd();//修改密码
 	char* getName() { return name; }

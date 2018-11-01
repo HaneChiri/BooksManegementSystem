@@ -5,31 +5,31 @@
 #ifndef __book_h__
 #define __book_h__
 using namespace std;
-class Book{
-	private:
-		int id,number;//ç¼–å·ã€åœ¨æ¶æ•°é‡ 
-		char name[40];//ä¹¦å 
-		char author[20];//ä½œè€… 
-		char press[20];//å‡ºç‰ˆç¤¾ 
-		float price;//ä»·æ ¼ 
-		bool isBorrowed;//æ˜¯å¦å¯å€Ÿ 
-	public:
-		Book(){}//æ— å‚æ„é€ å‡½æ•° 
-		Book(int _id,int _number,char *_name,char *_author,char *_press,float _price,bool _isBorrowed);//æœ‰å‚æ„é€ å‡½æ•° 
-		bool borrow();//å€Ÿä¹¦ 
-		bool back();//è¿˜ä¹¦ 
-		void display();//è¾“å‡ºä¹¦ç±ä¿¡æ¯ 
-		~Book(){}//ææ„å‡½æ•° 
-		char *getname();//è·å–ä¹¦å 
-		char *getauthor();//è·å–è¯»è€… 
-		char *getpresss();//è·å–å‡ºç‰ˆç¤¾ 
-		float getprice();//è·å–ä»·æ ¼ 
-		int getid();//è·å–ç¼–å· 
-		void setname(char na[]);//è®¾ç½®ä¹¦å 
-		void setauthor(char aa[]);//è®¾ç½®ä½œè€… 
-		void setpress(char pa[]);//è®¾ç½®å‡ºç‰ˆç¤¾ 
-		void setprice(float pr);//è®¾ç½®ä»·æ ¼ 
-		void setisBorrowed(int isB);//è®¾ç½®æ˜¯å¦å¯å€Ÿ 
-		void addbook(int _id,int _number,char *_name,char *_author,char *_press,float _price,bool _isBorrowed);//æ–°å¢ä¹¦ç± 
+class Book {
+private:
+	int id, number;//±àºÅ¡¢ÔÚ¼ÜÊıÁ¿ 
+	char name[40];//ÊéÃû 
+	char author[20];//×÷Õß 
+	char press[20];//³ö°æÉç 
+	float price;//¼Û¸ñ 
+	bool isBorrowed;//ÊÇ·ñ¿É½è 
+public:
+	Book() {}//ÎŞ²Î¹¹Ôìº¯Êı 
+	Book(int _id, int _number, char *_name, char *_author, char *_press, float _price, bool _isBorrowed);//ÓĞ²Î¹¹Ôìº¯Êı 
+	bool borrow();//½èÊé 
+	bool back();//»¹Êé 
+	void display();//Êä³öÊé¼®ĞÅÏ¢ 
+	~Book() {}//Îö¹¹º¯Êı 
+	char *getname();//»ñÈ¡ÊéÃû 
+	char *getauthor();//»ñÈ¡¶ÁÕß 
+	char *getpresss();//»ñÈ¡³ö°æÉç 
+	float getprice();//»ñÈ¡¼Û¸ñ 
+	int getid();//»ñÈ¡±àºÅ 
+	void setname(char na[]);//ÉèÖÃÊéÃû 
+	void setauthor(char aa[]);//ÉèÖÃ×÷Õß 
+	void setpress(char pa[]);//ÉèÖÃ³ö°æÉç 
+	void setprice(float pr);//ÉèÖÃ¼Û¸ñ 
+	void setisBorrowed(int isB);//ÉèÖÃÊÇ·ñ¿É½è 
+	void addbook(int _id, int _number, char *_name, char *_author, char *_press, float _price, bool _isBorrowed);//ĞÂÔöÊé¼® 
 };
 #endif 

@@ -1,6 +1,8 @@
 #pragma once
 #include "Account.h"
 #include <iostream>
+#include "book.h"//需要修改
+
 enum AccountCol//账号类字段类型
 {
 	T_UID,T_NAME
@@ -15,9 +17,11 @@ private:
 	const char* dataFileName;//绑定的文件名
 public:
 	AccountList();
-	AccountList(const Account data[], int n);//准备废弃的函数
+	AccountList(const Account data[], int n);//仅测试用的函数
 	AccountList(const char *fileName);
 	~AccountList();
+
+	Account * getCurrentAccount() { return currentAccount; }
 	//链表操作
 	void displayList()const;
 	void displayNode(const Account * p)const;//底层const，无法通过p修改指向的地址的值

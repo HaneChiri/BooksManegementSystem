@@ -52,6 +52,7 @@ void Account::displayBorrowList()
 函数功能：借书
 参数：书库指针，书指针
 返回值：是否正常执行
+备注：暂时不可用
 */
 int Account::borrow(BookList *bookDataBase,int bookID)
 {
@@ -79,6 +80,7 @@ int Account::borrow(BookList *bookDataBase,int bookID)
 函数功能：还书
 参数：书库指针，书指针
 返回值：是否正常执行
+备注：暂时不可用
 */
 int Account::returnBook(BookList *bookDataBase, int bookID)
 {
